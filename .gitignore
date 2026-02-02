@@ -1,8 +1,6 @@
 # Operating System files
 .DS_Store # macOS Finder files
 
-
-
 # Compiled code and build artifacts
 *.pyc          # Python bytecode files
 __pycache__/   # Python bytecode directory
@@ -11,6 +9,7 @@ __pycache__/   # Python bytecode directory
 # Experiments and log files
 experiments*/  # Experiment folder
 results_visualization/ # Visualization folder
+pyFSM/         # Problog experiments
 *.log          # Log files with any extension
 *.csv          # Result files
 *.tmp          # Temporary files
@@ -18,3 +17,9 @@ results_visualization/ # Visualization folder
 
 # IDE and editor configuration files
 .vscode/       # VS Code configuration directory
+
+# Huge dataset files and models
+Audio/         # Audio raw data
+IMU/           # IMU raw data
+Multimodal/    # Multimodal and fusion embedding data
+data/saved_models/ # Fusion and AE classifier models
