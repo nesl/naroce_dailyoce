@@ -1,4 +1,4 @@
-# NAROCE: Neural Algorithmic Reasoning for Online Complex Event Detection
+## NAROCE: Neural Algorithmic Reasoning for Online Complex Event Detection
 
 A two-stage deep learning framework for detecting complex behavioral events from multimodal sensor data (IMU + audio).
 

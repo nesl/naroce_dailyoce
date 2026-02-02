@@ -1,10 +1,12 @@
-# **DailyOCE**: Generation Guide
+## **DailyOCE**: Generation Guide
 
 This guide covers the **DailyOCE** dataset - a multimodal behavioral dataset for complex event detection in smart home environments.
 
 The dataset generation process creates multimodal (IMU + audio) embeddings for training and evaluating complex event detection models. The system supports multiple dataset variants for different experimental settings.
 
 ## Prerequisites
+
+**Place the following folders under `data/` directory:**
 
 - (Optional) `Audio/` and `IMU/` directories with raw sensor data (only needed for generating Multimodal/)
 - Raw multimodal data in `Multimodal/` directory
@@ -13,9 +15,12 @@ The dataset generation process creates multimodal (IMU + audio) embeddings for t
   - LIMUBert (IMU encoder): `saved_models/LIMUBert/`
   - Multimodal embedding models: `saved_models/multimodal_embed_model_w2.0.pt`, `multimodal_embed_model_w2.5.pt`
   - AE Classifiers: `saved_models/AE_classifier_w2.0.pt`, `saved_models/AE_classifier_w2.5.pt`
+- NAR datasets under `CE_dataset/` directory:
+  - `CE_dataset/nar/` - Standard 2.5s windows
+  - `CE_dataset/nar_w2.0s/` - Realistic 2.0s windows
 - GPU recommended for embedding generation
 
-**Download**: All pretrained models and raw data can be downloaded from [DOWNLOAD_LINK_PLACEHOLDER].
+**Download**: All pretrained models and raw data can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1O9odepHFZbnjSBnWIwNoU1nov4kqRxyA?usp=sharing).
 
 ## NAR Datasets (Concept Traces)
 
@@ -25,11 +30,11 @@ NAR (Neural Algorithmic Reasoner) datasets contain ground-truth atomic event lab
 - **Format**: Integer tokens (0-8) representing atomic activities
 - **Size**: 40,000 samples for training, 5000 for validation, 5000 for test
 - **Duration**: 5-minute CE sequences only
-- **Output directories**:
-  - `CE_dataset/nar/` - Standard 2.5s windows
-  - `CE_dataset/nar_w2.0s/` - Realistic 2.0s windows
+- **Place under directories**:
+  - `data/CE_dataset/nar/` - Standard 2.5s windows
+  - `data/CE_dataset/nar_w2.0s/` - Realistic 2.0s windows
 
-**Download**: NAR datasets can be downloaded from [NAR_DOWNLOAD_LINK_PLACEHOLDER].
+**Download**: NAR datasets can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1Q0xu5amYVsXi4U37uNzOdmgQbdzrksA1?usp=sharing).
 
 ## Dataset Variants
 
