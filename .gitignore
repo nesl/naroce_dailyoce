@@ -26,4 +26,3 @@ IMU/
 Multimodal/    
 data/saved_models/ 
 *.npy
-*.npz

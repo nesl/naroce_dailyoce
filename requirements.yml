@@ -1,4 +1,4 @@
-name: iros24
+name: naroce_env
 channels:
   - anaconda
   - pytorch
@@ -360,4 +360,4 @@ dependencies:
       - yarl==1.9.4
       - zetascale==2.5.5
       - zstandard==0.22.0
-prefix: /home/nesl/anaconda3/envs/iros24
+prefix: /home/nesl/anaconda3/envs/naroce_env
