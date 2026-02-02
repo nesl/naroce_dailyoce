@@ -1,0 +1,20 @@
+# Operating System files
+.DS_Store # macOS Finder files
+
+
+
+# Compiled code and build artifacts
+*.pyc          # Python bytecode files
+__pycache__/   # Python bytecode directory
+.claude/       # Claude code cache directory
+
+# Experiments and log files
+experiments*/  # Experiment folder
+results_visualization/ # Visualization folder
+*.log          # Log files with any extension
+*.csv          # Result files
+*.tmp          # Temporary files
+.env           # Environment variable files, which may contain sensitive data
+
+# IDE and editor configuration files
+.vscode/       # VS Code configuration directory
