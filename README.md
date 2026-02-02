@@ -1,21 +1,21 @@
-## NAROCE: Neural Algorithmic Reasoning for Online Complex Event Detection
+# NAROCE: Neural Algorithmic Reasoning for Online Complex Event Detection
 
 A two-stage deep learning framework for detecting complex behavioral events from multimodal sensor data (IMU + audio).
 
 This project uses the **DailyOCE** dataset - a multimodal behavioral dataset for complex event detection in smart home environments.
 
-### Setup
+## Setup
 
 ```bash
 conda env create -f requirements.yml
 conda activate naroce_env
 ```
 
-### Dataset Preparation
+## Dataset Preparation
 
 Before training models, you need to prepare the **DailyOCE** datasets. The `data/CE_dataset/` directory contains index files and datasets for complex event detection.
 
-#### Dataset Variants
+## Dataset Variants
 
 **Idealized Windowing (Standard):**
 - **Aligned**: Detection windows perfectly aligned with ground truth events
@@ -29,9 +29,9 @@ Before training models, you need to prepare the **DailyOCE** datasets. The `data
 
 **For detailed dataset generation instructions, see [`data/README.md`](data/README.md).**
 
-### Quick Start
+## Quick Start
 
-#### Train Baseline Model
+## Train Baseline Model
 ```bash
 python baseline.py configs/baseline_train.json <model> <dataset_size> <seed>
 
@@ -39,7 +39,7 @@ python baseline.py configs/baseline_train.json <model> <dataset_size> <seed>
 python baseline.py configs/baseline_train.json mamba1 2000 53
 ```
 
-#### Train NAROCE
+## Train NAROCE
 ```bash
 # Stage 1: Train NAR
 python naroce.py configs/naroce_nar_train.json <nar_dataset> <seed>
@@ -60,7 +60,7 @@ python naroce.py configs/naroce_adapter_train.json 20000 53 \
     --sensor_dataset 2000 --adapter_model mamba1_6L
 ```
 
-#### Evaluate Models
+## Evaluate Models
 ```bash
 # Baseline
 python evaluate.py configs/baseline_eval.json <model> <dataset_size> <eval_dataset> <seed>
@@ -74,7 +74,7 @@ python evaluate.py configs/baseline_eval.json mamba1 2000 15min 53
 python evaluate.py configs/ft_naroce_eval.json naroce_mamba1_6L 2000 15min 53 --nar_dataset 20000
 ```
 
-#### Evaluation Options
+## Evaluation Options
 
 **Test Dataset Durations:**
 - `5min`, `15min`, `30min`: Standard test durations
@@ -106,7 +106,7 @@ python evaluate.py configs/ft_naroce_eval_realistic_w2.0s.json naroce_mamba1_6L 
 python evaluate.py configs/baseline_eval.json mamba1 2000 15min 53
 ```
 
-### Configuration
+## Configuration
 
 All training uses JSON config files in `configs/`:
 - `baseline_train.json` / `baseline_eval.json`: Baseline configuration
@@ -121,7 +121,7 @@ Key parameters:
 - `n_epochs`: Default 5000 (with early stopping)
 - `alpha`: Focal loss parameter (default 0.8)
 
-### Batch Experiments
+## Batch Experiments
 
 ```bash
 bash scripts/naroce_pipeline.sh    # Train NAROCE
@@ -131,7 +131,7 @@ bash scripts/baseline.sh           # Train baselines
 bash scripts/evaluate_naroce.sh    # Evaluate models
 ```
 
-### Output
+## Output
 
 **Models saved to:**
 - Baseline: `experiments/baseline/saved_model/{model}/{model}-{dataset}-{seed}.pt`
@@ -141,7 +141,7 @@ bash scripts/evaluate_naroce.sh    # Evaluate models
 **Logs and results:**
 - `experiments/{baseline|naroce}/saved_logs/`
 
-### Troubleshooting
+## Troubleshooting
 
 **CUDA out of memory:** Reduce `batch_size` in config or use smaller adapter models
 
@@ -149,7 +149,7 @@ bash scripts/evaluate_naroce.sh    # Evaluate models
 
 **Dataset not found:** Verify datasets exist in `data/CE_dataset/` (see [`data/README.md`](data/README.md))
 
-### Project Structure
+## Project Structure
 
 ```
 naroce/
