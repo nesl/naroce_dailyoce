@@ -1,0 +1,11 @@
+{
+  "nar_data_root": "./data/CE_dataset/nar",
+  "log_root": "./experiments/naroce/saved_logs",
+  "model_root": "./experiments/naroce/saved_model",
+  "nar_model": "mamba1_v1",
+  "train": "nar",
+  "batch_size_nar": 256,
+  "learning_rate_nar": 0.0005,
+  "n_epochs_nar": 5000,
+  "alpha": 0.8
+}

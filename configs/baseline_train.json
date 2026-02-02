@@ -1,0 +1,9 @@
+{
+  "data_root": "./data/CE_dataset/standard",
+  "log_root": "./experiments/baseline/saved_logs",
+  "model_root": "./experiments/baseline/saved_model",
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "sample_iterations": 20000000,
+  "alpha": 0.8
+}

@@ -1,0 +1,15 @@
+{
+  "data_root": "./data/CE_dataset",
+  "log_root": "./experiments/naroce/saved_logs",
+  "model_root": "./experiments/naroce/saved_model",
+  "nar_model": "mamba1_v1",
+  "nar_model_seed": 103,
+  "train": "adapter",
+  "batch_size_adapter": 256,
+  "learning_rate_adapter": 0.005,
+  "sensor_sample_iterations":20000000,
+  "alpha": 0.8,
+  "adapter_dropout": 0.1
+}
+
+

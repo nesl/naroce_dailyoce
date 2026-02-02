@@ -1,0 +1,8 @@
+{
+  "data_root": "./data/CE_dataset/standard",
+  "log_root": "./experiments/evaluate/finetune_naroce",
+  "model_root": "./experiments/naroce/saved_model/finetune",
+  "experiment_type": "naroce",
+  "batch_size": 256,
+  "alpha": 0.8
+}

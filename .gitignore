@@ -1,25 +1,29 @@
 # Operating System files
-.DS_Store # macOS Finder files
+.DS_Store 
 
 # Compiled code and build artifacts
-*.pyc          # Python bytecode files
-__pycache__/   # Python bytecode directory
-.claude/       # Claude code cache directory
+*.pyc         
+__pycache__/  
+.claude/      
 
 # Experiments and log files
-experiments*/  # Experiment folder
-results_visualization/ # Visualization folder
-pyFSM/         # Problog experiments
-*.log          # Log files with any extension
-*.csv          # Result files
-*.tmp          # Temporary files
-.env           # Environment variable files, which may contain sensitive data
+experiments*/
+results_visualization/
+data_analysis/
+pyFSM/         
+*.log          
+*.csv          
+*.tmp         
+.env           
 
 # IDE and editor configuration files
-.vscode/       # VS Code configuration directory
+.vscode/       
+CLAUDE.md
 
 # Huge dataset files and models
-Audio/         # Audio raw data
-IMU/           # IMU raw data
-Multimodal/    # Multimodal and fusion embedding data
-data/saved_models/ # Fusion and AE classifier models
+Audio/         
+IMU/           
+Multimodal/    
+data/saved_models/ 
+*.npy
+*.npz

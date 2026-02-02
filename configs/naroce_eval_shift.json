@@ -1,0 +1,8 @@
+{
+  "data_root": "./data/CE_dataset/ideal_shifted",
+  "log_root": "./experiments/evaluate/naroce",
+  "model_root": "./experiments/naroce/saved_model/pipeline",
+  "experiment_type": "naroce",
+  "batch_size": 256,
+  "alpha": 0.8
+}

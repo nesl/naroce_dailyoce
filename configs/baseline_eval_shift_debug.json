@@ -1,0 +1,8 @@
+{
+  "data_root": "./data/CE_dataset/ideal_shifted",
+  "log_root": "./experiments/evaluate_debug/baseline",
+  "model_root": "./experiments/baseline/saved_model",
+  "experiment_type": "baseline",
+  "batch_size": 256,
+  "alpha": 0.8
+}

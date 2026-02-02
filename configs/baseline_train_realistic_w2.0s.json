@@ -1,0 +1,9 @@
+{
+  "data_root": "./data/CE_dataset/realistic_w2.0s",
+  "log_root": "./experiments_w2.0s/baseline/saved_logs",
+  "model_root": "./experiments_w2.0s/baseline/saved_model",
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "sample_iterations": 20000000,
+  "alpha": 0.8
+}

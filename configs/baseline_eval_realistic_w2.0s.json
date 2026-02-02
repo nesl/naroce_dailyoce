@@ -1,0 +1,8 @@
+{
+  "data_root": "./data/CE_dataset/realistic_w2.0s",
+  "log_root": "./experiments_w2.0s/evaluate/baseline",
+  "model_root": "./experiments_w2.0s/baseline/saved_model",
+  "experiment_type": "baseline",
+  "batch_size": 256,
+  "alpha": 0.8
+}
