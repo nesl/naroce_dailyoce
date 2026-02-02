@@ -4,7 +4,7 @@ This guide covers the **DailyOCE** dataset - a multimodal behavioral dataset for
 
 The dataset generation process creates multimodal (IMU + audio) embeddings for training and evaluating complex event detection models. The system supports multiple dataset variants for different experimental settings.
 
-## Prerequisites
+### Prerequisites
 
 - (Optional) `Audio/` and `IMU/` directories with raw sensor data (only needed for generating Multimodal/)
 - Raw multimodal data in `Multimodal/` directory
@@ -17,7 +17,7 @@ The dataset generation process creates multimodal (IMU + audio) embeddings for t
 
 **Download**: All pretrained models and raw data can be downloaded from [DOWNLOAD_LINK_PLACEHOLDER].
 
-## NAR Datasets (Concept Traces)
+### NAR Datasets (Concept Traces)
 
 NAR (Neural Algorithmic Reasoner) datasets contain ground-truth atomic event labels as AE-level concept traces, generated using LLM-based simulators. These datasets are used for training the NAR model on symbolic reasoning patterns before adapting to raw sensor data.
 
@@ -31,13 +31,13 @@ NAR (Neural Algorithmic Reasoner) datasets contain ground-truth atomic event lab
 
 **Download**: NAR datasets can be downloaded from [NAR_DOWNLOAD_LINK_PLACEHOLDER].
 
-## Dataset Variants
+### Dataset Variants
 
-### 1. Standard (Idealized Windowing)
+#### 1. Standard (Idealized Windowing)
 
 Perfectly aligned 2.5-second detection windows with ground truth events.
 
-#### Step 1: Generate Index Files
+##### Step 1: Generate Index Files
 
 Index files specify which raw sensor windows to use for each sample.
 
@@ -59,7 +59,7 @@ python generate_indices.py --duration 15 --split test --n_samples 2000
 
 **Output:** `CE_dataset/ce5min_{split}_indices_{n}.npz`
 
-#### Step 2: Generate Embeddings
+##### Step 2: Generate Embeddings
 
 Generate 128-dim fusion embeddings from raw sensor data.
 
@@ -81,7 +81,7 @@ python dataset_loader.py --duration 15 --split test
 - `CE_dataset/standard/ce5min_{split}_data_{n}.npy` (embeddings, shape: n × 120 × 128)
 - `CE_dataset/standard/ce5min_{split}_labels_{n}.npy` (labels, shape: n × 120 × 10)
 
-### 2. Shifted (Temporal Augmentation)
+#### 2. Shifted (Temporal Augmentation)
 
 Applies temporal shift to raw sensor data for robustness testing.
 
@@ -92,7 +92,7 @@ python dataset_loader.py --duration 5 --split test --shift 0.1
 
 **Output:** `CE_dataset/ideal_shifted/ce5min_test_data_shift0.1.npy`
 
-### 3. Fused (Adjacent Window Fusion)
+#### 3. Fused (Adjacent Window Fusion)
 
 Weighted fusion of current window with portion of previous window.
 
@@ -103,7 +103,7 @@ python dataset_loader.py --duration 5 --split test --fuse 0.1
 
 **Output:** `CE_dataset/ideal_fused/ce5min_test_data_fuse0.1.npy`
 
-### 4. AE2CE (Classifier Predictions)
+#### 4. AE2CE (Classifier Predictions)
 
 Uses atomic event classifier predictions (9-dim) instead of raw embeddings (128-dim).
 
@@ -124,11 +124,11 @@ python dataset_loader.py --duration 5 --split train --n_samples 2000 --soft-ae2c
 - Cannot combine with `--shift` flag
 - Requires pretrained AE classifier
 
-### 5. Realistic Windowing
+#### 5. Realistic Windowing
 
 Variable detection windows that simulate real-world deployment with majority-vote atomic event aggregation.
 
-#### Generate Realistic Windowing Datasets
+##### Generate Realistic Windowing Datasets
 
 ```bash
 # Training set with 2.0s detection windows
@@ -175,32 +175,32 @@ python realistic_windowing.py \
 - Must have existing realistic windowing embeddings generated first
 - Much faster than regenerating embeddings from scratch
 
-## Dataset Durations
+### Dataset Durations
 
 All commands support different CE durations via `--duration`:
 - `5`: 5-minute CE sequences (120 windows at 2.5s)
 - `15`: 15-minute CE sequences (360 windows at 2.5s)
 - `30`: 30-minute CE sequences (720 windows at 2.5s)
 
-## Dataset Splits
+### Dataset Splits
 
-### Training Set
+#### Training Set
 - Subjects: 1-4
 - Variable sample sizes: 2000, 4000, 6000, 8000, 10000
 - Always requires `--n_samples` parameter
 
-### Validation Set
+#### Validation Set
 - Subjects: 1-4
 - Fixed size, no `--n_samples` needed
 
-### Test Sets
+#### Test Sets
 
 **Cross-Subject:**
 - Subject: 5 only
 - Tests generalization to new subjects
 - Supports multiple durations (5min, 15min, 30min)
 
-## File Naming Convention
+### File Naming Convention
 
 **Index Files:**
 - `ce{duration}min_{split}_indices_{n}.npz` (train)
@@ -216,7 +216,7 @@ All commands support different CE durations via `--duration`:
 - AE2CE: `ae2ce{duration}min_{split}_data_{n}.npy`
 - Soft AE2CE: `softae2ce{duration}min_{split}_data_{n}.npy`
 
-## Directory Structure
+### Directory Structure
 
 ```
 data/
@@ -259,7 +259,7 @@ data/
     └── LIMUBert/                       # IMU encoder
 ```
 
-## Quick Start Example
+### Quick Start Example
 
 Generate a complete training dataset:
 
@@ -274,7 +274,7 @@ python dataset_loader.py --duration 5 --split train --n_samples 2000
 python dataset_loader.py --duration 5 --split train --n_samples 2000 --ae2ce
 ```
 
-## Performance Notes
+### Performance Notes
 
 - **Index generation**: Very fast (<1 second per 1000 samples)
 - **Embedding generation (standard)**: ~0.1s per sample with cached fusion embeddings
@@ -282,7 +282,7 @@ python dataset_loader.py --duration 5 --split train --n_samples 2000 --ae2ce
 - **AE2CE generation**: Fast (~0.03s for 7200 windows on GPU)
 - **Realistic windowing**: ~30-60s per 1000 samples on GPU
 
-## Troubleshooting
+### Troubleshooting
 
 **CUDA out of memory:**
 - Reduce batch size in the script
