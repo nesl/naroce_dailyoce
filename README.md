@@ -1,6 +1,8 @@
-# NAROCE: Neural Algorithmic Reasoner for Complex Event Detection
+## NAROCE: Neural Algorithmic Reasoning for Online Complex Event Detection
 
 A two-stage deep learning framework for detecting complex behavioral events from multimodal sensor data (IMU + audio).
+
+This project uses the **DailyOCE** dataset - a multimodal behavioral dataset for complex event detection in smart home environments.
 
 ## Setup
 
@@ -11,7 +13,7 @@ conda activate naroce_env
 
 ## Dataset Preparation
 
-Before training models, you need to prepare the datasets. The `data/CE_dataset/` directory contains index files and datasets for complex event detection.
+Before training models, you need to prepare the **DailyOCE** datasets. The `data/CE_dataset/` directory contains index files and datasets for complex event detection.
 
 ### Dataset Variants
 

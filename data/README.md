@@ -1,8 +1,6 @@
-# Dataset Generation Guide
+## **DailyOCE**: Generation Guide
 
-This guide explains how to generate sensor datasets for complex event detection.
-
-## Overview
+This guide covers the **DailyOCE** dataset - a multimodal behavioral dataset for complex event detection in smart home environments.
 
 The dataset generation process creates multimodal (IMU + audio) embeddings for training and evaluating complex event detection models. The system supports multiple dataset variants for different experimental settings.
 
