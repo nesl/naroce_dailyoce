@@ -4,6 +4,8 @@ A two-stage deep learning framework for detecting complex behavioral events from
 
 This project uses the **DailyOCE** dataset - a multimodal behavioral dataset for complex event detection in smart home environments.
 
+For more details on the framework and experiments, see our paper: "[Scaling Online Complex Event Detection with Synthetic Supervision and Mamba-Based Neural Algorithmic Reasoning](https://arxiv.org/abs/2502.07250)".
+
 ## Setup
 
 ```bash
